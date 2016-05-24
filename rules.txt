@@ -1,0 +1,21 @@
+program -> variable_declarations functions-List
+variable_declarations -> variable_declarations variable_declaration | 
+variable_declaration -> type identifier ; | type identifier [ num ] ;
+stmts -> stmts stmt | 
+stmt -> assignment_stmt | return_stmt | ifelse_stmt | for_stmt | while_stmt | block_stmt | variable_declarations
+while_stmt -> while ( expression ) { stmts } 
+type -> int | double | char
+boolean_expression -> true | false | expression relaional_op expression | boolean_expression logical_op boolean_expression
+relational_op -> <= | >= | < | == | >
+logical_op -> &&
+expression -> expression + term  | expression - term | term
+term -> term * factor | term / factor | factor
+factor -> ( expression ) | id | num | double_val | id [ num ] | boolean_expression
+block_stmt -> { stmts }
+return_stmt -> return id ; | return num ; | return double_val ; | return ;
+for_stmt -> for ( expression ; boolean_expression ; expression ) block_stmt
+ifelse_stmt -> if ( boolean_expression ) { stmts } | if ( boolean_expression ) { stmts } else { stmts }
+assignment_stmt -> id = expression ; | id [ num ] = expression ;
+functions-List -> functions-List function | function
+function -> void id ( paramList ) block_stmt | type id ( paramList ) block_stmt
+paramList -> paramList , variable_declaration | variable_declaration |    			    	       

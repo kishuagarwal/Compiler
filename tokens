@@ -1,0 +1,4 @@
+int identifier ( int identifier )
+{
+	return identifier ;
+} 

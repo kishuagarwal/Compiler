@@ -1,0 +1,21 @@
+program -> functions-List
+variable_declarations -> variable_declaration ; | variable_declaration , withoutType
+withoutType -> identifier ; | identifier , withoutType ;  
+variable_declaration -> type identifier 
+stmts -> stmt stmts'
+stmts' -> stmts | 
+stmt -> assignment_stmt | return_stmt | ifelse_stmt | for_stmt | while_stmt | variable_declarations
+while_stmt -> while ( expression ) { stmts } 
+type -> int | double | char
+relational_op -> <= | >= | < | == | >
+logical_op -> &&
+expression -> expression + term  | expression - term | term
+term -> term * factor | term / factor | factor
+factor -> ( expression ) | identifier | num | double_val 
+return_stmt -> return identifier ; | return num ; | return double_val ; | return ;
+for_stmt -> for ( expression ; expression ; expression ) { stmts }
+ifelse_stmt -> if ( expression ) { stmts } | if ( expression ) { stmts } else { stmts }
+assignment_stmt -> identifier = expression ; 
+functions-List -> functions-List function | function
+function -> void identifier ( paramList ) { stmts } | type identifier ( paramList ) { stmts }
+paramList -> | type identifier | void     
